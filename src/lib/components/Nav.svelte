@@ -6,7 +6,10 @@
 	// Add new pages here to show them in the nav bar.
 	const links: { route: RouteId; label: string }[] = [
 		{ route: '/', label: 'Home' },
-		{ route: '/cyprus', label: 'Cyprus' }
+		{ route: '/cyprus', label: 'Cyprus' },
+		{ route: '/black-sea', label: 'Black Sea' },
+		{ route: '/turkey-a', label: 'Turkey A' },
+		{ route: '/turkey-b', label: 'Turkey B' }
 	];
 
 	let open = $state(false);
@@ -132,6 +135,7 @@
 	nav a {
 		position: relative;
 		display: block;
+		white-space: nowrap;
 		padding: 0.5rem 0.9rem;
 		font-family: var(--font-display);
 		font-size: 0.85rem;
@@ -211,7 +215,8 @@
 		transform: translateY(-7px) rotate(-45deg);
 	}
 
-	@media (max-width: 720px) {
+	/* Switch to the hamburger menu once the links no longer fit beside the title */
+	@media (max-width: 1100px) {
 		.toggle {
 			display: flex;
 		}
