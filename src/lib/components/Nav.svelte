@@ -87,6 +87,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
 		height: var(--nav-height);
 	}
 
@@ -94,10 +95,13 @@
 		display: flex;
 		align-items: center;
 		gap: 0.6rem;
+		min-width: 0;
 		font-family: var(--font-display);
-		font-size: 1.4rem;
+		/* Scales with screen width: ~0.95rem on phones up to 1.25rem on desktop */
+		font-size: clamp(0.95rem, 0.75rem + 0.9vw, 1.25rem);
 		font-weight: 700;
-		letter-spacing: 0.18em;
+		line-height: 1.15;
+		letter-spacing: 0.08em;
 		color: var(--color-on-soil);
 		text-decoration: none;
 	}
@@ -107,6 +111,7 @@
 	}
 
 	.amphora {
+		flex-shrink: 0;
 		width: 28px;
 		height: 28px;
 		fill: none;
@@ -168,6 +173,7 @@
 	/* Hamburger button (mobile only) */
 	.toggle {
 		display: none;
+		flex-shrink: 0;
 		flex-direction: column;
 		justify-content: center;
 		gap: 5px;
@@ -210,6 +216,15 @@
 			display: flex;
 		}
 
+		.brand {
+			letter-spacing: 0.04em;
+		}
+
+		.amphora {
+			width: 24px;
+			height: 24px;
+		}
+
 		nav {
 			display: none;
 			position: absolute;
@@ -237,6 +252,15 @@
 			left: 0.9rem;
 			right: auto;
 			width: 2rem;
+		}
+	}
+
+	/* Very small phones: keep the title to two lines */
+	@media (max-width: 400px) {
+		.brand {
+			gap: 0.45rem;
+			font-size: 0.85rem;
+			letter-spacing: 0.02em;
 		}
 	}
 </style>
