@@ -15,13 +15,14 @@
 -->
 <script lang="ts">
 	import type { Snippet } from 'svelte';
+	import Meta from '$lib/components/Meta.svelte';
 
 	interface Props {
 		/** Region name, shown as the page title, e.g. "Cyprus". */
 		region: string;
 		/** Who wrote this page (shown under the title). */
 		author: string;
-		/** One-sentence summary shown under the title. */
+		/** One-sentence summary shown under the title (also used for search results and link previews). */
 		summary?: string;
 		/** Name of the famous building, added to section V's heading. */
 		buildingName?: string;
@@ -73,9 +74,7 @@
 	]);
 </script>
 
-<svelte:head>
-	<title>{region} · Archaeology of Rome's Eastern Empire</title>
-</svelte:head>
+<Meta title={region} description={summary} />
 
 <article class="region">
 	<header class="region-header">

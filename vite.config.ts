@@ -2,9 +2,7 @@ import adapter from '@sveltejs/adapter-static';
 import { sveltekit } from '@sveltejs/kit/vite';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
-
-// The site is hosted at https://eastmedfall2026.witcsas.reclaim.hosting/eastmedfall2026/
-const BASE_PATH = '/eastmedfall2026';
+import { basePath } from './src/lib/site.ts';
 
 export default defineConfig({
 	plugins: [
@@ -25,7 +23,7 @@ export default defineConfig({
 			}),
 
 			paths: {
-				base: BASE_PATH
+				base: basePath
 			},
 
 			// Put all CSS and JS directly inside each .html file.
