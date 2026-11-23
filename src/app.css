@@ -1,37 +1,49 @@
 /* ---------- Design tokens ---------- */
 :root {
-	--color-bg: #f8f9fb;
-	--color-surface: #ffffff;
-	--color-text: #1c2230;
-	--color-muted: #5b6475;
-	--color-border: #e2e6ee;
-	--color-primary: #1f5fae;
-	--color-primary-hover: #174a88;
-	--color-primary-soft: #e6eef9;
+	/* Earth tones: parchment, soil, terracotta, ochre */
+	--color-bg: #f3ead8;
+	--color-surface: #fbf6ea;
+	--color-text: #3a2a1c;
+	--color-muted: #75614a;
+	--color-border: #d9c7a5;
+	--color-primary: #a4492b; /* terracotta */
+	--color-primary-hover: #7f3520;
+	--color-primary-soft: #efdcc5;
+	--color-accent: #b8864b; /* ochre */
+	--color-soil: #3b2a1d; /* dark earth, used for the nav */
+	--color-on-soil: #f3ead8;
 
-	--font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+	--font-display: 'Cinzel', 'Trajan Pro', Georgia, serif;
+	--font-sans: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
 	--font-mono: ui-monospace, 'Cascadia Code', Consolas, monospace;
 
-	--radius: 8px;
-	--shadow-sm: 0 1px 2px rgb(16 24 40 / 0.06);
-	--shadow-md: 0 4px 16px rgb(16 24 40 / 0.08);
+	--radius: 3px;
+	--shadow-sm: 0 1px 2px rgb(59 42 29 / 0.12);
+	--shadow-md: 0 6px 18px rgb(59 42 29 / 0.18);
 
-	--nav-height: 64px;
+	/* Subtle paper grain */
+	--texture-paper: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.25 0 0 0 0 0.15 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	/* Greek key (meander) band, ochre */
+	--pattern-meander: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12'%3E%3Cpath d='M0 10.5H20M3 10.5V1.5H15V7.5H8V4.5H11' fill='none' stroke='%23b8864b' stroke-width='1.5'/%3E%3C/svg%3E");
+
+	--nav-height: 68px;
 	--content-width: 1100px;
 
 	color-scheme: light dark;
 }
 
 @media (prefers-color-scheme: dark) {
+	/* Lamp-lit excavation tent */
 	:root {
-		--color-bg: #12151c;
-		--color-surface: #1a1f29;
-		--color-text: #e6e9ef;
-		--color-muted: #9aa3b5;
-		--color-border: #2a3140;
-		--color-primary: #6aa5f0;
-		--color-primary-hover: #8dbbf5;
-		--color-primary-soft: #1e2a3d;
+		--color-bg: #1d1610;
+		--color-surface: #271e16;
+		--color-text: #ecdfc6;
+		--color-muted: #b29c7f;
+		--color-border: #42332a;
+		--color-primary: #d97a52;
+		--color-primary-hover: #e89670;
+		--color-primary-soft: #3a2a1f;
+		--color-soil: #140f0a;
 	}
 }
 
@@ -50,10 +62,11 @@ body {
 	margin: 0;
 	min-height: 100vh;
 	font-family: var(--font-sans);
-	font-size: 1rem;
-	line-height: 1.6;
+	font-size: 1.15rem;
+	line-height: 1.65;
 	color: var(--color-text);
-	background: var(--color-bg);
+	background-color: var(--color-bg);
+	background-image: var(--texture-paper);
 	-webkit-font-smoothing: antialiased;
 }
 
@@ -77,9 +90,26 @@ h1,
 h2,
 h3,
 h4 {
+	font-family: var(--font-display);
 	line-height: 1.2;
 	margin: 0 0 0.5em;
 	font-weight: 700;
+	letter-spacing: 0.03em;
+	color: var(--color-text);
+}
+
+h1 {
+	letter-spacing: 0.06em;
+}
+
+/* Small ochre rule under page titles */
+h1::after {
+	content: '';
+	display: block;
+	width: 4rem;
+	height: 3px;
+	margin-top: 0.4em;
+	background: var(--color-accent);
 }
 
 h1 {
@@ -98,7 +128,8 @@ p {
 
 a {
 	color: var(--color-primary);
-	text-underline-offset: 2px;
+	text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+	text-underline-offset: 3px;
 }
 a:hover {
 	color: var(--color-primary-hover);
@@ -110,6 +141,27 @@ code {
 	background: var(--color-primary-soft);
 	padding: 0.1em 0.35em;
 	border-radius: 4px;
+}
+
+::selection {
+	background: var(--color-accent);
+	color: #fff;
+}
+
+hr {
+	height: 12px;
+	margin: 2.5rem 0;
+	border: 0;
+	background: var(--pattern-meander) repeat-x center;
+	opacity: 0.8;
+}
+
+blockquote {
+	margin: 1.5em 0;
+	padding: 0.25em 0 0.25em 1.25em;
+	border-left: 3px solid var(--color-accent);
+	font-style: italic;
+	color: var(--color-muted);
 }
 
 :focus-visible {
@@ -135,6 +187,9 @@ main {
 	border-radius: var(--radius);
 	padding: 1.5rem;
 	box-shadow: var(--shadow-sm);
+	/* Fine inner frame, like a museum label */
+	outline: 1px solid var(--color-border);
+	outline-offset: -6px;
 }
 
 .btn {
@@ -144,7 +199,11 @@ main {
 	border-radius: var(--radius);
 	background: var(--color-primary);
 	color: #fff;
-	font-weight: 600;
+	font-family: var(--font-display);
+	font-size: 0.85rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
 	text-decoration: none;
 	cursor: pointer;
 	transition: background 0.15s ease;
