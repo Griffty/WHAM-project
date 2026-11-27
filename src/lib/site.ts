@@ -13,3 +13,6 @@ export const siteUrl = 'https://eastmedfall2026.witcsas.reclaim.hosting';
 
 /** The folder on that server the site lives in. vite.config.ts reads this too. */
 export const basePath = '/eastmedfall2026';
+
+/** The published Tableau Public chart of pottery finds at Pyla-Koutsopetria, by period. */
+export const potteryChartUrl = 'https://public.tableau.com/views/Pyla-Koutsopetria/Sheet1';
