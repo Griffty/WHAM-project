@@ -246,19 +246,6 @@
 		color: var(--color-muted);
 	}
 
-	/* MLA works cited: hanging indent */
-	.works-cited :global(p),
-	.works-cited :global(li) {
-		padding-left: 2em;
-		text-indent: -2em;
-	}
-
-	.works-cited :global(ul),
-	.works-cited :global(ol) {
-		padding: 0;
-		list-style: none;
-	}
-
 	@media (min-width: 960px) {
 		.region-body {
 			grid-template-columns: 220px 1fr;

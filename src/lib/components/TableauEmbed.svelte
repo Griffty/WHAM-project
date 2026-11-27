@@ -56,11 +56,6 @@
 		box-shadow: var(--shadow-sm);
 	}
 
-	figcaption {
-		margin-top: 0.5rem;
-		font-size: 0.9rem;
-	}
-
 	.embed-error {
 		padding: 0.75rem 1rem;
 		border: 1px dashed var(--color-primary);
