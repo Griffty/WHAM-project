@@ -70,7 +70,14 @@
 			numeral: 'VI',
 			title: artifactName ? `Famous artifact: ${artifactName}` : 'Famous artifact',
 			content: artifact
+		},
+		{
+			id: 'sources',
+			numeral: 'VII',
+			title: "Works Cited",
+			content: sources
 		}
+
 	]);
 </script>
 
@@ -98,9 +105,9 @@
 						</a>
 					</li>
 				{/each}
-				{#if sources}
-					<li><a href="#works-cited"><span class="numeral">·</span> Works cited</a></li>
-				{/if}
+				<!-- {#if sources}
+					<li><a href="#works-cited"><span class="numeral">VII</span> Works cited</a></li>
+				{/if} -->
 			</ol>
 		</nav>
 
@@ -115,13 +122,6 @@
 					{/if}
 				</section>
 			{/each}
-
-			{#if sources}
-				<section id="works-cited" class="works-cited">
-					<h2>Works cited</h2>
-					{@render sources()}
-				</section>
-			{/if}
 		</div>
 	</div>
 </article>
