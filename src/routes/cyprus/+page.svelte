@@ -19,15 +19,18 @@
 <script lang="ts">
 	import RegionPage from '$lib/components/RegionPage.svelte';
 	import Figure from '$lib/components/Figure.svelte';
+	import TableauEmbed from '$lib/components/TableauEmbed.svelte';
+	import { potteryChartUrl } from '$lib/site';
 </script>
 
-<RegionPage region="Cyprus" author="Daniel" summary="[One sentence that sums up this region.]">
+<RegionPage region="Pyla-Koutsopetria" author="Daniel" summary="A Late Roman harbor town on Larnaca Bay in southeastern Cyprus that flourished from the 5th to 7th centuries CE before being abandoned.">
 	{#snippet history()}
 		<p>[I. History under Rome: how and when the region came under Roman rule, and what changed.]</p>
 	{/snippet}
 
 	{#snippet geography()}
 		<p>[II. Geography and resources: landscape, climate, and the resources that mattered to Rome.]</p>
+		<img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/LarnacaDistrictPyla.png/1920px-LarnacaDistrictPyla.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail&_=20181229015553" alt="Map of the Larnaca region">
 	{/snippet}
 
 	{#snippet sites()}
@@ -39,6 +42,12 @@
 
 	{#snippet artifacts()}
 		<p>[IV. Artifact types: ceramics, metals, statues, coins, animal bones and so on.]</p>
+
+		<TableauEmbed
+			url={potteryChartUrl}
+			title="Bar chart of pottery pieces found at Pyla-Koutsopetria, grouped by period"
+			height={440}
+		/>
 	{/snippet}
 
 	{#snippet building()}
@@ -50,6 +59,9 @@
 	{/snippet}
 
 	{#snippet sources()}
-		<p>[Works cited, MLA format, one source per paragraph.]</p>
+		<p><a href="https://opencontext.org/projects/3f6dcd13-a476-488e-ed10-47d25513fcb2">OpenContext</a></p>
+		<p><a href="https://www.ancientportsantiques.com/wp-content/uploads/Documents/PLACES/Crete-Cyprus/Koutsopetria-Caraher2008.pdf">Caraher</a></p>
+		<p>Caraher, William, et al. “Surveying Late Antique Cyprus.” Near Eastern
+			Archaeology, vol. 71, no. 1/2, Mar. 2008, pp. 82-89. EBSCOhost, <a href="https://doi.org/10.1086/NEA20361351">https://doi.org/10.1086/NEA20361351</a>.</p>
 	{/snippet}
 </RegionPage>
