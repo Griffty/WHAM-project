@@ -21,19 +21,40 @@
 	import Figure from '$lib/components/Figure.svelte';
 </script>
 
-<RegionPage region="Turkey A" author="Aidan" summary="[One sentence that sums up this region.]">
+<RegionPage
+	region="Turkey A"
+	author="Aidan"
+	summary="Ephesus served as the administrative and trade hub for the Roman Empire during the 1st-3rd centuries AD."
+	buildingName="Library of Celsus"
+>
 	{#snippet history()}
-		<p>[I. History under Rome: how and when the region came under Roman rule, and what changed.]</p>
+		<p>
+			Under Roman rule, Ephesus became an administrative center for the Roman Province of Asia. It
+			operated as an administrative center being a part of the Roman imperial system while preserving
+			the Greek language and ways of life, bringing both cultures together. Because of its massive
+			trading economy, Ephesus became very wealthy under Roman rule, enabling trade throughout Europe,
+			Asia, and into Africa.
+		</p>
 	{/snippet}
 
 	{#snippet geography()}
-		<p>[II. Geography and resources: landscape, climate, and the resources that mattered to Rome.]</p>
+		<p>
+			Located in a valley near the Aegean coast, Ephesus had a natural border from the hills and
+			mountains while being an epicenter for trade throughout Asia Minor. The climate during the
+			different seasons allowed for the cultivation of different crops such as olives, grapes,
+			cereals, etc. Timber surrounded the city, making it a valuable resource for building homes
+			within the city's walls and also allowing for its trade using the maritime trade routes on the
+			Aegean Sea. The fertile ground, coastline access, and important natural resource placement are
+			all reasons that Ephesus was able to prosper under the Roman Empire and make the city an
+			epicenter for trade, business, and growth.
+		</p>
 	{/snippet}
 
 	{#snippet sites()}
+		<p>The temple of Artemis</p>
 		<p>
-			[III. Major sites and culture: the key sites, plus language, religion, political system, main
-			economic base and technological achievements.]
+			[Finish this section: the key sites, plus language, religion, political system, main economic
+			base and technological achievements.]
 		</p>
 	{/snippet}
 
@@ -42,7 +63,13 @@
 	{/snippet}
 
 	{#snippet building()}
-		<p>[V. Famous building: a detailed study of one building.]</p>
+		<p>
+			The Library of Celsus was built in 114-117 CE after Roman Senator Tiberius Julius Celsus
+			Polemaeanus. Aside from being his burial place, it also served as a collection of roughly 12000
+			scrolls. Due to this large amount of writing being saved, the library was vital in the rise of
+			Christianity during this time. In 262 CE, a fire during the Gothic invasion destroyed the
+			library, leaving it in ruins to be rebuilt.
+		</p>
 	{/snippet}
 
 	{#snippet artifact()}
